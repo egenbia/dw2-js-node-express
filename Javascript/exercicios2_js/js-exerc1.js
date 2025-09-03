@@ -67,3 +67,20 @@ listaClientes.forEach((cliente) => {
         Cpf: ${cliente.cpf}<br><br>
         `);
 });
+
+// 3. Classes: Fábrica de Heróis
+// Crie uma classe em JavaScript chamada Heroi, que represente um herói genérico. Essa classe deve
+// conter os seguintes atributos:
+// - nome
+// - vida
+// - velocidade
+// - forca 
+
+document.write("<h3>Classes: Fábrica de Heróis</h3>")
+class Herois {
+  constructor(nome, vida, velocidade, forca) {
+    this.nome = nome; 
+    this.vida = vida;
+    this.velocidade = velocidade;
+    this.forca = forca;
+  }}
