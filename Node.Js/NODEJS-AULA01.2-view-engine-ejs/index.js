@@ -9,19 +9,28 @@ app.set('view engine', 'ejs')
 //Criando a primeira rota do site (ROTA PRINCIPAL)
 //REQ = trata a requisição
 //RES = trata a resposta
-app.get("/", (req, res) => {
+app.get("/index", (req, res) => {
   res.render("index")
 });
 
-//ROTA DE PRODUTOS
 app.get("/produtos", (req, res) => {
-    res.send("<h1>Bem-vindo a página de Produtos!</h1>")
-})
+  res.render("produtos")
+});
 
-//ROTA DE CLIENTES
 app.get("/clientes", (req, res) => {
-    res.send("<h1>Bem-vindo a página de Clientes!</h1>")
-})
+  res.render("clientes")
+});
+
+
+// //ROTA DE PRODUTOS
+// app.get("/produtos", (req, res) => {
+//     res.send("<h1>Bem-vindo a página de Produtos!</h1>")
+// })
+
+// //ROTA DE CLIENTES
+// app.get("/clientes", (req, res) => {
+//     res.send("<h1>Bem-vindo a página de Clientes!</h1>")
+// })
 
 //Iniciando o Servidor HTTP
 const port = 8080; // O servidor escutará na porta 8080
