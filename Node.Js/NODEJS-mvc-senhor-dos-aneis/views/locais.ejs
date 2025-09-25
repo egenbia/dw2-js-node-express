@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<h1>Lista de Locais</h1>
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% locais.forEach(l => { %>
+      <tr>
+        <td><%= l.nome %></td>
+        <td><%= l.tipo %></td>
+        <td><%= l.descricao %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<a href="/"><< Voltar</a>
+<%- include('partials/footer.ejs') %>
