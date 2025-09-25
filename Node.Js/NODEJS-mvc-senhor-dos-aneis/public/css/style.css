@@ -1,3 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #1e1e1e; /* Um fundo escuro para combinar com a navbar e o footer */
+  color: #38332E; /* Cor de texto clara para contraste */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1; /* Faz o conteúdo principal crescer e empurrar o footer */
+}
+
 /* Navbar.css */
 .navbar {
   position: fixed;
@@ -5,7 +21,6 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: rgba(31, 31, 31, 0.95); /* bg-card/95 */
   backdrop-filter: blur(4px); /* efeito blur */
   border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* border-gold/20 */
   display: flex;
@@ -15,7 +30,7 @@
 }
 
 .navbar-brand {
-  font-family: "Ringbearer", fantasy;
+  font-family: "Merriweather", serif; 
   font-size: 1.5rem;
   font-weight: lighter;
   color: #FFD700; /* gold */
@@ -39,7 +54,7 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-family: "Merriweather", serif;
-  color: #f5f5f5; /* foreground */
+  color: #ffffff; /* foreground */
   text-decoration: none;
   transition: all 0.3s;
 }
@@ -67,4 +82,80 @@
   .nav-links-mobile {
     display: flex;
   }
+}
+
+.footer-custom {
+  background-color: #38332E;
+  color: #c59102;
+  font-family: 'Merriweather', serif;
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 5px #00000080;
+  width: 100%; /* Garante que o footer ocupe 100% da largura */
+  height: 13vh;
+  padding: 20px 0; /* Exemplo de padding */
+  text-align: center;
+}
+
+/* Navbar.css */
+.navbar {
+  /* ... estilos existentes ... */
+  padding: 1rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1rem; /* Diminui o padding horizontal para telas menores */
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links-mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.2rem; /* Reduz o tamanho da fonte da marca para telas muito pequenas */
+  }
+}
+
+/* Container da imagem */
+.hero-section {
+    position: relative;
+    text-align: center; /* Centraliza o texto */
+    color: white; /* Cor do texto */
+}
+
+/* Garante que a imagem preencha o container */
+.hero-section img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove o espaço abaixo da imagem */
+}
+
+/* Contêiner do texto */
+.hero-text {
+    position: absolute;
+    top: 50%; /* Posiciona o topo do texto no meio do container */
+    left: 50%; /* Posiciona a esquerda do texto no meio do container */
+    transform: translate(-50%, -50%); /* Move o texto de volta para o centro exato */
+    width: 80%; /* Largura do texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para melhorar a legibilidade */
+}
+
+/* Título e subtítulo */
+.hero-title {
+    font-family: "Merriweather", serif; /* Fonte do Senhor dos Anéis */
+    font-size: 4rem; /* Tamanho da fonte grande */
+    margin: 0;
+    color: #FFD700; /* Cor dourada */
+}
+
+.hero-subtitle {
+    font-family: "Merriweather", serif;
+    font-size: 1.5rem;
+    margin-top: 10px;
 }

@@ -1,7 +1,17 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/navbar.ejs') %>
 
-<h1>Lista de Locais</h1>
+<style>
+  body {
+    background-color: #38332E; /* Define um cinza claro para o fundo */
+    font-family: "Merriweather", serif;
+    text-align: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
+</style>
+<br>
+<h1 style="color:#c59102; ">Lista de Locais</h1> 
 <table class="table table-bordered table-hover">
   <thead class="table-dark">
     <tr>
@@ -20,6 +30,4 @@
     <% }) %>
   </tbody>
 </table>
-
-<a href="/"><< Voltar</a>
 <%- include('partials/footer.ejs') %>
