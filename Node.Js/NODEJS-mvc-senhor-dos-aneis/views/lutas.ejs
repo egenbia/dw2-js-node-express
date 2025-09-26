@@ -12,19 +12,19 @@
 </style>
 <br>
 <h1 style="color:#c59102; ">Lista de Lutas</h1> 
-
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" 
+       style="table-layout: fixed; width: 400px; margin: 10px auto; text-align: center;">
   <thead class="table-dark">
     <tr>
-      <th>Nome da Luta</th>
-      <th>Vencedor</th>
+      <th style="width: 200px; height: 40px; vertical-align: middle;">Nome da Luta</th>
+      <th style="width: 200px; height: 40px; vertical-align: middle;">Vencedor</th>
     </tr>
   </thead>
   <tbody>
     <% lutas.forEach(l => { %>
       <tr>
-        <td><%= l.nome %></td>
-        <td><%= l.vencedor %></td>
+        <td style="width: 200px; height: 40px; vertical-align: middle;"><%= l.nome %></td>
+        <td style="width: 200px; height: 40px; vertical-align: middle;"><%= l.vencedor %></td>
       </tr>
     <% }) %>
   </tbody>

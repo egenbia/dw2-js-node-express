@@ -1,8 +1,9 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/navbar.ejs') %>
+
 <style>
   body {
-    background-color: #38332E; /* Define um cinza claro para o fundo */
+    background-color: #38332E;
     font-family: "Merriweather", serif;
     text-align: center;
     min-height: 100vh;
@@ -10,21 +11,23 @@
   }
 </style>
 <br>
-<h1 style="color:#c59102; ">Lista de Personagens</h1> 
-<table class="table table-bordered table-hover">
+<h1 style="color:#c59102;">Lista de Personagens</h1> 
+
+<table class="table table-bordered table-hover" 
+       style="table-layout: fixed; width: 700px; margin: 10px auto; text-align: center;">
   <thead class="table-dark">
     <tr>
-      <th>Nome</th>
-      <th>Raça</th>
-      <th>Arma</th>
+      <th style="width: 200px; height: 20px; vertical-align: middle;">Nome</th>
+      <th style="width: 200px; height: 20px; vertical-align: middle;">Raça</th>
+      <th style="width: 200px; height: 20px; vertical-align: middle;">Arma</th>
     </tr>
   </thead>
   <tbody>
     <% personagens.forEach(p => { %>
       <tr>
-        <td><%= p.nome %></td>
-        <td><%= p.raca %></td>
-        <td><%= p.arma %></td>
+        <td style="width: 200px; height: 20px; vertical-align: middle;"><%= p.nome %></td>
+        <td style="width: 200px; height: 20px; vertical-align: middle;"><%= p.raca %></td>
+        <td style="width: 200px; height: 20px; vertical-align: middle;"><%= p.arma %></td>
       </tr>
     <% }) %>
   </tbody>
