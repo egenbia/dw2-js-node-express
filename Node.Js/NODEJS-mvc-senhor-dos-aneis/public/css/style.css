@@ -10,79 +10,25 @@ body {
   flex-direction: column;
 }
 
-main {
-  flex-grow: 1; /* Faz o conteúdo principal crescer e empurrar o footer */
-}
-
-/* Navbar.css */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  backdrop-filter: blur(4px); /* efeito blur */
   border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* border-gold/20 */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
 }
 
 .navbar-brand {
   font-family: "Merriweather", serif; 
-  font-size: 1.5rem;
-  font-weight: lighter;
-  color: #FFD700; /* gold */
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.navbar-brand:hover {
-  color: #E6BE00; /* gold-dark */
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
 }
 
 .nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-family: "Merriweather", serif;
-  color: #ffffff; /* foreground */
-  text-decoration: none;
-  transition: all 0.3s;
 }
 
-.nav-link:hover {
-  background-color: rgba(255, 215, 0, 0.1); /* hover-bg gold/10 */
-  color: #FFD700; /* gold */
-}
 
 .nav-link.active {
   color: #FFD700; /* gold */
   background-color: rgba(255, 215, 0, 0.2); /* gold/20 */
 }
 
-/* Mobile */
-.nav-links-mobile {
-  display: none;
-  gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .nav-links-mobile {
-    display: flex;
-  }
-}
 
 .footer-custom {
   background-color: #38332E;
@@ -96,31 +42,6 @@ main {
   text-align: center;
 }
 
-/* Navbar.css */
-.navbar {
-  /* ... estilos existentes ... */
-  padding: 1rem 2rem;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem 1rem; /* Diminui o padding horizontal para telas menores */
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-links-mobile {
-    display: flex;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-brand {
-    font-size: 1.2rem; /* Reduz o tamanho da fonte da marca para telas muito pequenas */
-  }
-}
 
 /* Container da imagem */
 .hero-section {
@@ -132,7 +53,7 @@ main {
 /* Garante que a imagem preencha o container */
 .hero-section img {
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: block; /* Remove o espaço abaixo da imagem */
 }
 
