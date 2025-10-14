@@ -1,29 +1,31 @@
 import express from "express";
 const router = express.Router();
-//Importando o modelo Cliente
+// Importando o Model de Cliente
 import Cliente from "../models/Cliente.js";
 
 // ROTA CLIENTES
 router.get("/clientes", function (req, res) {
+  //SEÇECT * FROM Clientes
   Cliente.findAll()
     .then((clientes) => {
       res.render("clientes", {
         clientes: clientes,
       });
-      // catch => falha na resoluçao da promessa
+      // catch -> Falha na resolução da promessa
     })
     .catch((error) => {
-      console.log("Erro ao listar clientes: " + error);
+      console.log(error);
     });
 });
 
-// ROTA DE CADASTRO DE CLIENTES
+// rota de cadastro de clientes
 router.post("/clientes/new", (req, res) => {
-  //Recebendo os dados do formulário
-  var nome = req.body.nome;
-  var cpf = req.body.cpf;
-  var endereco = req.body.endereco;
+  // Coletando os dados do formulário
+  const nome = req.body.nome;
+  const cpf = req.body.cpf;
+  const endereco = req.body.endereco;
   Cliente.create({
+    // coluna : dado do form
     nome: nome,
     cpf: cpf,
     endereco: endereco,
@@ -36,9 +38,11 @@ router.post("/clientes/new", (req, res) => {
     });
 });
 
-// ROTA DE EXCLUSÃO DE CLIENTES
+// Rota de exclusão de cliente
+// :id é um parâmetro obrigatótio
 router.get("/clientes/delete/:id", (req, res) => {
   const id = req.params.id;
+  // .destroy() -> excluir um registro do banco
   Cliente.destroy({
     where: {
       id: id,
@@ -52,37 +56,35 @@ router.get("/clientes/delete/:id", (req, res) => {
     });
 });
 
-// ROTA DE EDIÇÃO DE CLIENTES - MOSTRAR FORMULÁRIO
+// Rota de edição de cliente
 router.get("/clientes/edit/:id", (req, res) => {
   const id = req.params.id;
-  Cliente.findByPk(id)
-    .then((cliente) => {
-      res.render("clientesEdit", {
-        cliente: cliente,
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
 
+  // Buscando o cliente pelo ID
+  // findByPk() - > busca um registro pela chave primária
+  Cliente.findByPk(id).then((cliente) => {
+    res.render("clienteEdit", {
+      cliente: cliente,
+    });
+  });
+});
 
 // ROTA DE ALTERAÇÃO DE CLIENTES
 router.post("/clientes/update/:id", (req, res) => {
-    const id = req.body.id
-    const nome = req.body.nome
-    const cpf = req.body.cpf
-    const endereco = req.body.endereco
-    Cliente.update(
-        {
-            nome : nome,
-            cpf : cpf,
-            endereco : endereco
-        },
-        {where: {id : id}}
-    ).then(() => {
-        res.redirect("/clientes")
-    })
-})
+  const id = req.body.id;
+  const nome = req.body.nome;
+  const cpf = req.body.cpf;
+  const endereco = req.body.endereco;
+  Cliente.update(
+    {
+      nome: nome,
+      cpf: cpf,
+      endereco: endereco,
+    },
+    { where: { id: id } }
+  ).then(() => {
+    res.redirect("/clientes");
+  });
+});
 
 export default router;

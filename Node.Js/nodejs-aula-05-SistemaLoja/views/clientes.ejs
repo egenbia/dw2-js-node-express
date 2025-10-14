@@ -3,9 +3,10 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      <h1>Cadastrar Clientes</h1>
+      <h1>Cadastrar cliente</h1>
     </div>
     <div class="card-body">
+        <!--Formulário de cadastro-->
       <form action="/clientes/new" method="POST">
         <label>Nome do cliente:</label>
         <input
@@ -19,7 +20,7 @@
         <input
           type="text"
           name="cpf"
-          placeholder="Insira o cpf do cliente"
+          placeholder="Insira o CPF do cliente"
           class="form-control"
           required
         />
@@ -27,20 +28,31 @@
         <input
           type="text"
           name="endereco"
-          placeholder="Insira o endeço do cliente"
-          class="form-control"
+          placeholder="Insira o endereço do cliente"
+          class="form-control mb-4"
           required
         />
-        <input type="submit" value="cadastrar" class="btn btn-success mt-3" />
-        <input type="reset" value="limpar" class="btn btn-danger mt-3" />
+        <input type="submit" class="btn btn-success" value="Cadastrar" />
+        <input type="reset" class="btn btn-danger" value="Limpar" />
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Clientes</h1>
+    </div>
+    <div class="card-body">
       <table>
         <thead>
           <tr>
+            <th></th>
             <th>Nome:</th>
             <th>CPF:</th>
             <th>Endereço:</th>
-            <th colspan="2" style="text-align: center">Ações</th>
+            <th colspan="2" style="text-align: center;">Ações:</th>
           </tr>
         </thead>
         <tbody>
@@ -50,22 +62,9 @@
             <td><%= cliente.nome %></td>
             <td><%= cliente.cpf %></td>
             <td><%= cliente.endereco %></td>
-            <td>
-              <a href="/clientes/edit/<%= cliente.id %>">
-              <button class="btn btn-warning">Editar</button>
-            </td>
-
-            <td>
-              <a href="/clientes/delete/<%= cliente.id %>">
-                <button
-                  onclick="return confirm('Deseja mesmo excluir o cliente <%- cliente.nome%>?')"
-                  class="btn btn-danger"o=  >
-                  Excluir
-                </button>
-              </a>
-            </td>
+            <td><a href="/clientes/edit/<%= cliente.id %>"><button class="btn btn-warning">Editar</button></a></td>
+            <td><a href="/clientes/delete/<%= cliente.id %>"><button onclick="return confirm('Deseja mesmo excluir o cliente <%= cliente.nome %>?')" class="btn btn-danger">Excluir</button></a></td>
           </tr>
-
           <% }) %>
         </tbody>
       </table>
