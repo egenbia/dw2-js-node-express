@@ -6,7 +6,7 @@ const connection = new Sequelize({
   dialect: "mysql",
   host: "localhost",
   username: "root",
-  password: "Caramuj0_",
+  password: "",
   // Definindo o banco de dados da aplicação
   database: "nossaloja",
   timezone: "-03:00",

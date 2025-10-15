@@ -4,38 +4,38 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      <h1>Alterar cliente</h1>
+      <h1>Alterar produto</h1>
     </div>
     <div class="card-body">
         <!--Formulário de edição-->
-    <form action="/clientes/update" method="POST">
+    <form action="/produtos/update" method="POST">
 
-        <input type="hidden" name="id" value="<%= cliente.id %>">
-        <label>Nome do cliente:</label>
+        <input type="hidden" name="id" value="<%= produto.id %>">
+        <label>Nome do produto:</label>
         <input
           type="text"
           name="nome"
-          placeholder="Insira o nome do cliente"
+          placeholder="Insira o nome do produto"
           class="form-control"
-          value="<%= cliente.nome %>"
+          value="<%= produto.nome %>"
           required
         />
-        <label>CPF do cliente:</label>
+        <label>preco do produto:</label>
         <input
           type="text"
-          name="cpf"
-          placeholder="Insira o CPF do cliente"
+          name="preco"
+          placeholder="Insira o preco do produto"
           class="form-control"
-          value="<%= cliente.cpf %>"
+          value="<%= produto.preco %>"
           required
         />
-        <label>Endereço do cliente:</label>
+        <label>categoria do produto:</label>
         <input
           type="text"
-          name="endereco"
-          placeholder="Insira o endereço do cliente"
+          name="categoria"
+          placeholder="Insira o categoria do produto"
           class="form-control mb-4"
-          value="<%= cliente.endereco %>"
+          value="<%= produto.categoria %>"
           required
         />
         <input type="submit" class="btn btn-success" value="Alterar" />

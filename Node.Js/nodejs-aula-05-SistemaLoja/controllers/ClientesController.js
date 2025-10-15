@@ -70,21 +70,23 @@ router.get("/clientes/edit/:id", (req, res) => {
 });
 
 // ROTA DE ALTERAÇÃO DE CLIENTES
-router.post("/clientes/update/:id", (req, res) => {
-  const id = req.body.id;
-  const nome = req.body.nome;
-  const cpf = req.body.cpf;
-  const endereco = req.body.endereco;
-  Cliente.update(
-    {
-      nome: nome,
-      cpf: cpf,
-      endereco: endereco,
-    },
-    { where: { id: id } }
-  ).then(() => {
-    res.redirect("/clientes");
-  });
-});
+router.post("/clientes/update", (req, res) => {
+  // Coletando dados do formulário
+  const id = req.body.id
+  const nome = req.body.nome
+  const cpf = req.body.cpf
+  const endereco = req.body.endereco
+  Cliente.update({
+    nome : nome,
+    cpf : cpf,
+    endereco : endereco
+  },
+{ where : {id : id}}
+).then(() => {
+  res.redirect("/clientes");
+}).catch(error => {
+  console.log(error)
+})
+})
 
 export default router;
