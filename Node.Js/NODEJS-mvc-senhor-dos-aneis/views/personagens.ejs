@@ -1,36 +1,80 @@
-<%- include('partials/header.ejs') %>
-<%- include('partials/navbar.ejs') %>
 
-<style>
-  body {
-    background-color: #38332E;
-    font-family: "Merriweather", serif;
-    text-align: center;
-    min-height: 100vh;
-    justify-content: center;
-  }
-</style>
-<br>
-<h1 style="color:#c59102;">Lista de Personagens</h1> 
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
 
-<table class="table table-bordered table-hover" 
-       style="table-layout: fixed; width: 700px; margin: 10px auto; text-align: center;">
-  <thead class="table-dark">
-    <tr>
-      <th style="width: 200px; height: 20px; vertical-align: middle;">Nome</th>
-      <th style="width: 200px; height: 20px; vertical-align: middle;">Raça</th>
-      <th style="width: 200px; height: 20px; vertical-align: middle;">Arma</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% personagens.forEach(p => { %>
-      <tr>
-        <td style="width: 200px; height: 20px; vertical-align: middle;"><%= p.nome %></td>
-        <td style="width: 200px; height: 20px; vertical-align: middle;"><%= p.raca %></td>
-        <td style="width: 200px; height: 20px; vertical-align: middle;"><%= p.arma %></td>
-      </tr>
-    <% }) %>
-  </tbody>
-</table>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>personagens</h1>
+            </div>
+            <div class="card-body">
 
-<%- include('partials/footer.ejs') %>
+
+        <!--Formulário de cadastro-->
+      <form action="/personagens/new" method="POST">
+        <label>Nome do personagem:</label>
+        <input
+          type="text"
+          name="nome"
+          placeholder="Insira o nome do personagem"
+          class="form-control"
+          required
+        />
+        <label>Preço do personagem:</label>
+        <input
+          type="text"
+          name="preco"
+          placeholder="Insira o preco do personagem"
+          class="form-control"
+          required
+        />
+        <label>Categoria do personagem:</label>
+        <input
+          type="text"
+          name="categoria"
+          placeholder="Insira o categoria do personagem"
+          class="form-control mb-4"
+          required
+        />
+        <input type="submit" class="btn btn-success" value="Cadastrar" />
+    
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>personagens</h1>
+    </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nome:</th>
+                            <th>Preço:</th>
+                            <th>Categoria:</th>
+                            <th style="text-align: center;" colspan="2">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% personagens.forEach(personagem => { %>
+                        <tr>
+                            <td><img src="imgs/product.png" width="30px"></td>
+                            <td><%= personagem.nome %></td>
+                            <td><%= personagem.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
+                            <td><%= personagem.categoria %></td>
+                            <td><a href="/personagens/edit/<%= personagem.id %>"><button class="btn btn-warning">Editar</button></a></td>
+                            <td><a href="/personagens/delete/<%= personagem.id %>"><button onclick="return confirm('Deseja mesmo excluir o personagem <%= personagem.nome %>?')" class="btn btn-danger">Excluir</button></a></td>
+          </tr>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include ('partials/footer.ejs') %>

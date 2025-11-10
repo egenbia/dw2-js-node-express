@@ -1,0 +1,48 @@
+<%- include ('partials/header.ejs') %> 
+<%- include ('partials/navbar.ejs') %>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Alterar local</h1>
+    </div>
+    <div class="card-body">
+        <!--Formulário de edição-->
+    <form action="/locais/update" method="POST">
+
+        <input type="hidden" name="id" value="<%= local.id %>">
+        <label>Nome do local:</label>
+        <input
+          type="text"
+          name="nome"
+          placeholder="Insira o nome do local"
+          class="form-control"
+          value="<%= local.nome %>"
+          required
+        />
+        <label>CPF do local:</label>
+        <input
+          type="text"
+          name="cpf"
+          placeholder="Insira o CPF do local"
+          class="form-control"
+          value="<%= local.cpf %>"
+          required
+        />
+        <label>Endereço do local:</label>
+        <input
+          type="text"
+          name="endereco"
+          placeholder="Insira o endereço do local"
+          class="form-control mb-4"
+          value="<%= local.endereco %>"
+          required
+        />
+        <input type="submit" class="btn btn-success" value="Alterar" />
+        <input type="reset" class="btn btn-danger" value="Limpar" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include ('partials/footer.ejs') %>

@@ -1,36 +1,85 @@
-<%- include('partials/header.ejs') %>
-<%- include('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %> <%- include ('partials/navbar.ejs') %>
 
 <style>
   body {
     background-color: #38332E;
     font-family: "Merriweather", serif;
-    text-align: center;
-    min-height: 100vh;
     justify-content: center;
   }
 </style>
 <br>
-<h1 style="color:#c59102;">Lista de Locais</h1> 
 
-<table class="table table-bordered table-hover" 
-       style="table-layout: fixed; width: 400px; margin: 10px auto; text-align: center;">
-  <thead class="table-dark">
-    <tr>
-      <th style="width: 200px; height: 40px; vertical-align: middle;">Nome</th>
-      <th style="width: 200px; height: 40px; vertical-align: middle;">Tipo</th>
-      <th style="width: 200px; height: 40px; vertical-align: middle;">Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% locais.forEach(l => { %>
-      <tr>
-        <td data-label="Nome"><%= l.nome %></td>
-        <td data-label="Tipo"><%= l.tipo %></td>
-        <td data-label="Descrição"><%= l.descricao %></td>
-      </tr>
-    <% }) %>
-  </tbody>
-</table>
 
-<%- include('partials/footer.ejs') %>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Cadastrar local</h1>
+    </div>
+    <div class="card-body">
+        <!--Formulário de cadastro-->
+      <form action="/locais/new" method="POST">
+        <label>Nome do local:</label>
+        <input
+          type="text"
+          name="nome"
+          placeholder="Insira o nome do local"
+          class="form-control"
+          required
+        />
+        <label>Tipo do local:</label>
+        <input
+          type="text"
+          name="tipo"
+          placeholder="Insira o tipo do local"
+          class="form-control"
+          required
+        />
+        <label>Descrição do local:</label>
+        <input
+          type="text"
+          name="endereco"
+          placeholder="Insira o Descrição do local"
+          class="form-control mb-4"
+          required
+        />
+        <input type="submit" class="btn btn-success" value="Cadastrar" />
+        <input type="reset" class="btn btn-danger" value="Limpar" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>locais</h1>
+    </div>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome:</th>
+            <th>tipo:</th>
+            <th>Descrição:</th>
+            <th colspan="2" style="text-align: center;">Ações:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% locais.forEach(local=> { %>
+          <tr>
+            <td><img src="imgs/avatar.png" width="30px" /></td>
+            <td><%= local.nome %></td>
+            <td><%= local.tipo %></td>
+            <td><%= local.endereco %></td>
+            <td><a href="/locais/edit/<%= local.id %>"><button class="btn btn-warning">Editar</button></a></td>
+            <td><a href="/locais/delete/<%= local.id %>"><button onclick="return confirm('Deseja mesmo excluir o local <%= local.nome %>?')" class="btn btn-danger">Excluir</button></a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include ('partials/footer.ejs') %>

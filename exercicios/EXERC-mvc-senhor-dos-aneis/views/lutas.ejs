@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<style>
+  body {
+    background-color: #38332E; /* Define um cinza claro para o fundo */
+    font-family: "Merriweather", serif;
+    text-align: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
+</style>
+<br>
+<h1 style="color:#c59102; ">Lista de Lutas</h1> 
+<table class="table table-bordered table-hover" 
+       style="table-layout: fixed; width: 400px; margin: 10px auto; text-align: center;">
+  <thead class="table-dark">
+    <tr>
+      <th style="width: 200px; height: 40px; vertical-align: middle;">Nome da Luta</th>
+      <th style="width: 200px; height: 40px; vertical-align: middle;">Vencedor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% lutas.forEach(l => { %>
+      <tr>
+        <td style="width: 200px; height: 40px; vertical-align: middle;"><%= l.nome %></td>
+        <td style="width: 200px; height: 40px; vertical-align: middle;"><%= l.vencedor %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('partials/footer.ejs') %>

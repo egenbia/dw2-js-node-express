@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<style>
+  body {
+    background-color: #38332E;
+    font-family: "Merriweather", serif;
+    text-align: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
+</style>
+<br>
+<h1 style="color:#c59102;">Lista de Locais</h1> 
+
+<table class="table table-bordered table-hover" 
+       style="table-layout: fixed; width: 400px; margin: 10px auto; text-align: center;">
+  <thead class="table-dark">
+    <tr>
+      <th style="width: 200px; height: 40px; vertical-align: middle;">Nome</th>
+      <th style="width: 200px; height: 40px; vertical-align: middle;">Tipo</th>
+      <th style="width: 200px; height: 40px; vertical-align: middle;">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% locais.forEach(l => { %>
+      <tr>
+        <td data-label="Nome"><%= l.nome %></td>
+        <td data-label="Tipo"><%= l.tipo %></td>
+        <td data-label="Descrição"><%= l.descricao %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('partials/footer.ejs') %>

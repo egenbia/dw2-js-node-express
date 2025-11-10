@@ -1,0 +1,39 @@
+<%- include ('partials/header.ejs') %> 
+<%- include ('partials/navbar.ejs') %>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Alterar luta</h1>
+    </div>
+    <div class="card-body">
+        <!--Formulário de edição-->
+    <form action="/lutas/update" method="POST">
+
+        <input type="hidden" name="id" value="<%= luta.id %>">
+        <label>numero do luta:</label>
+        <input
+          type="text"
+          name="numero"
+          placeholder="Insira o numero do luta"
+          class="form-control"
+          value="<%= luta.numero %>"
+          required
+        />
+        <label>valor do luta:</label>
+        <input
+          type="text"
+          name="valor"
+          placeholder="Insira o valor do luta"
+          class="form-control"
+          value="<%= luta.valor %>"
+          required
+        /> <br>
+        <input type="submit" class="btn btn-success" value="Alterar" />
+        <input type="reset" class="btn btn-danger" value="Limpar" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include ('partials/footer.ejs') %>
