@@ -37,8 +37,8 @@
         <label>Descrição do local:</label>
         <input
           type="text"
-          name="endereco"
-          placeholder="Insira o Descrição do local"
+          name="descricao"
+          placeholder="Insira a descrição do local"
           class="form-control mb-4"
           required
         />
@@ -48,38 +48,51 @@
     </div>
   </div>
 </div>
+<br>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h1>locais</h1>
-    </div>
-    <div class="card-body">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Nome:</th>
-            <th>tipo:</th>
-            <th>Descrição:</th>
-            <th colspan="2" style="text-align: center;">Ações:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% locais.forEach(local=> { %>
-          <tr>
-            <td><img src="imgs/avatar.png" width="30px" /></td>
-            <td><%= local.nome %></td>
-            <td><%= local.tipo %></td>
-            <td><%= local.endereco %></td>
-            <td><a href="/locais/edit/<%= local.id %>"><button class="btn btn-warning">Editar</button></a></td>
-            <td><a href="/locais/delete/<%= local.id %>"><button onclick="return confirm('Deseja mesmo excluir o local <%= local.nome %>?')" class="btn btn-danger">Excluir</button></a></td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Locais</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table">
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Tipo:</th>
+                                <th>Descrição:</th>
+                                <th colspan="2" style="text-align: center;">Ações:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% locais.forEach(local=> { %>
+                                <tr>
+                                    <td>
+                                        <%= local.nome %>
+                                    </td>
+                                    <td>
+                                        <%= local.tipo %>
+                                    </td>
+                                    <td>
+                                        <%= local.descricao %>
+                                    </td>
+                                    <td class="text-center" style="max-width: 30px;">
+                                        <a href="/locais/edit/<%= local.id %>">
+                                            <button class="btn btn-warning btn-sm">Editar</button>
+                                        </a>
+                                    </td>
+                                    <td class="text-center" style="max-width: 30px;">
+                                        <a href="/locais/delete/<%= local.id %>" onclick="return confirm('Deseja mesmo excluir o local <%= local.nome %>?')">
+                                            <button class="btn btn-danger btn-sm">Excluir</button>
+                                        </a>
+                                    </td>
 
-<%- include ('partials/footer.ejs') %>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%- include ('partials/footer.ejs') %>

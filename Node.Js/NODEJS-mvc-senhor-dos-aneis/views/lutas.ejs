@@ -1,67 +1,88 @@
-<%- include ('partials/header.ejs') %>
-<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %> <%- include ('partials/navbar.ejs') %>
 
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h1>lutas</h1>
-            </div>
+<style>
+  body {
+    background-color: #38332E;
+    font-family: "Merriweather", serif;
+    justify-content: center;
+  }
+</style>
+<br>
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Cadastrar luta</h1>
+    </div>
     <div class="card-body">
         <!--Formulário de cadastro-->
       <form action="/lutas/new" method="POST">
-        <label>numero do luta:</label>
+        <label>Nome da luta:</label>
         <input
           type="text"
-          name="numero"
-          placeholder="Insira o numero do luta"
+          name="nome"
+          placeholder="Insira o nome da luta"
           class="form-control"
           required
         />
-        <label>valor do luta:</label>
+        <label>vencedor da luta:</label>
         <input
           type="text"
-          name="valor"
-          placeholder="Insira o valor do luta"
+          name="vencedor"
+          placeholder="Insira o vencedor da luta"
           class="form-control"
           required
         /> <br>
 
         <input type="submit" class="btn btn-success" value="Cadastrar" />
-
+        <input type="reset" class="btn btn-danger" value="Limpar" />
       </form>
     </div>
   </div>
 </div>
+<br>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h1>lutas</h1>
-    </div>
-    <div class="card-body">
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Número:</th>
-                            <th>Valor:</th>
-                            <th colspan="2" style="text-align: center;">Ações:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% lutas.forEach(luta => { %>
-                        <tr>
-                            <td><img src="imgs/order.png" width="30px"></td>
-                            <td><%= luta.numero %></td>
-                            <td><%= luta.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
-            <td><a href="/lutas/edit/<%= luta.id %>"><button class="btn btn-warning">Editar</button></a></td>
-            <td><a href="/lutas/delete/<%= luta.id %>"><button onclick="return confirm('Deseja mesmo excluir o luta <%= luta.numero %>?')" class="btn btn-danger">Excluir</button></a></td>
-                        </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Lutas</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table">
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Vencedor:</th>
+                                <th colspan="2" style="text-align: center;">Ações:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% lutas.forEach(luta=> { %>
+                                <tr>
+                                    <td>
+                                        <%= luta.nome %>
+                                    </td>
+                                    <td>
+                                        <%= luta.vencedor %>
+                                    </td>
+
+                                    <td class="text-center" style="max-width: 30px;">
+                                        <a href="/lutas/edit/<%= luta.id %>">
+                                            <button class="btn btn-warning btn-sm">Editar</button>
+                                        </a>
+                                    </td>
+                                    <td class="text-center" style="max-width: 30px;">
+                                        <a href="/lutas/delete/<%= luta.id %>" onclick="return confirm('Deseja mesmo excluir o luta <%= luta.nome %>?')">
+                                            <button class="btn btn-danger btn-sm">Excluir</button>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-
-<%- include ('partials/footer.ejs') %>
+        <%- include ('partials/footer.ejs') %>

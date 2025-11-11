@@ -15,13 +15,13 @@ router.get("/personagens", function (req, res) {
 router.post("/personagens/new", (req, res) => {
   // Coletando os dados do formulário
   const nome = req.body.nome;
-  const preco = req.body.preco;
-  const categoria = req.body.categoria;
+  const raca = req.body.raca;
+  const arma = req.body.arma;
   personagem.create({
     // coluna : dado do form
     nome: nome,
-    preco: preco,
-    categoria: categoria,
+    raca: raca,
+    arma: arma,
   })
     .then(() => {
       res.redirect("/personagens");
@@ -67,12 +67,12 @@ router.post("/personagens/update", (req, res) => {
   // Coletando dados do formulário
   const id = req.body.id
   const nome = req.body.nome
-  const preco = req.body.preco
-  const categoria = req.body.categoria
+  const raca = req.body.raca
+  const arma = req.body.arma
   personagem.update({
     nome : nome,
-    preco : preco,
-    categoria : categoria
+    raca : raca,
+    arma : arma
   },
 { where : {id : id}}
 ).then(() => {

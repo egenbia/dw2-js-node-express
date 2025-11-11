@@ -1,15 +1,21 @@
+<%- include ('partials/header.ejs') %> <%- include ('partials/navbar.ejs') %>
 
-<%- include ('partials/header.ejs') %>
-<%- include ('partials/navbar.ejs') %>
+<style>
+  body {
+    background-color: #38332E;
+    font-family: "Merriweather", serif;
+    justify-content: center;
+  }
+</style>
+<br>
 
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h1>personagens</h1>
-            </div>
-            <div class="card-body">
 
-
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Cadastrar personagem</h1>
+    </div>
+    <div class="card-body">
         <!--Formulário de cadastro-->
       <form action="/personagens/new" method="POST">
         <label>Nome do personagem:</label>
@@ -20,61 +26,73 @@
           class="form-control"
           required
         />
-        <label>Preço do personagem:</label>
+        <label>Raça do personagem:</label>
         <input
           type="text"
-          name="preco"
-          placeholder="Insira o preco do personagem"
+          name="raca"
+          placeholder="Insira a raca do personagem"
           class="form-control"
           required
         />
-        <label>Categoria do personagem:</label>
+        <label>Descrição do personagem:</label>
         <input
           type="text"
-          name="categoria"
-          placeholder="Insira o categoria do personagem"
+          name="arma"
+          placeholder="Insira a descrição do personagem"
           class="form-control mb-4"
           required
         />
         <input type="submit" class="btn btn-success" value="Cadastrar" />
-    
+        <input type="reset" class="btn btn-danger" value="Limpar" />
       </form>
     </div>
   </div>
 </div>
+<br>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h1>personagens</h1>
-    </div>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Personagens</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table">
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Raça:</th>
+                                <th>Descrição:</th>
+                                <th colspan="2" style="text-align: center;">Ações:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% personagens.forEach(personagem=> { %>
+                                <tr>
+                                    <td>
+                                        <%= personagem.nome %>
+                                    </td>
+                                    <td>
+                                        <%= personagem.raca %>
+                                    </td>
+                                    <td>
+                                        <%= personagem.arma %>
+                                    </td>
+                                    <td class="text-center" style="max-width: 30px;">
+                                        <a href="/personagens/edit/<%= personagem.id %>">
+                                            <button class="btn btn-warning btn-sm">Editar</button>
+                                        </a>
+                                    </td>
+                                    <td class="text-center" style="max-width: 30px;">
+                                        <a href="/personagens/delete/<%= personagem.id %>" onclick="return confirm('Deseja mesmo excluir o personagem <%= personagem.nome %>?')">
+                                            <button class="btn btn-danger btn-sm">Excluir</button>
+                                        </a>
+                                    </td>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Nome:</th>
-                            <th>Preço:</th>
-                            <th>Categoria:</th>
-                            <th style="text-align: center;" colspan="2">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% personagens.forEach(personagem => { %>
-                        <tr>
-                            <td><img src="imgs/product.png" width="30px"></td>
-                            <td><%= personagem.nome %></td>
-                            <td><%= personagem.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
-                            <td><%= personagem.categoria %></td>
-                            <td><a href="/personagens/edit/<%= personagem.id %>"><button class="btn btn-warning">Editar</button></a></td>
-                            <td><a href="/personagens/delete/<%= personagem.id %>"><button onclick="return confirm('Deseja mesmo excluir o personagem <%= personagem.nome %>?')" class="btn btn-danger">Excluir</button></a></td>
-          </tr>
-                        </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-
-<%- include ('partials/footer.ejs') %>
+        <%- include ('partials/footer.ejs') %>

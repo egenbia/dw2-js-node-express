@@ -8,7 +8,7 @@
     </div>
     <div class="card-body">
         <!--Formulário de edição-->
-    <form action="/personagems/update" method="POST">
+    <form action="/personagens/update" method="POST">
 
         <input type="hidden" name="id" value="<%= personagem.id %>">
         <label>Nome do personagem:</label>
@@ -20,22 +20,22 @@
           value="<%= personagem.nome %>"
           required
         />
-        <label>preco do personagem:</label>
+        <label>raca do personagem:</label>
         <input
           type="text"
-          name="preco"
-          placeholder="Insira o preco do personagem"
+          name="raca"
+          placeholder="Insira o raca do personagem"
           class="form-control"
-          value="<%= personagem.preco %>"
+          value="<%= personagem.raca %>"
           required
         />
-        <label>categoria do personagem:</label>
+        <label>arma do personagem:</label>
         <input
           type="text"
-          name="categoria"
-          placeholder="Insira o categoria do personagem"
+          name="arma"
+          placeholder="Insira o arma do personagem"
           class="form-control mb-4"
-          value="<%= personagem.categoria %>"
+          value="<%= personagem.arma %>"
           required
         />
         <input type="submit" class="btn btn-success" value="Alterar" />

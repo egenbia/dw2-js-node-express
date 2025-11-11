@@ -23,13 +23,13 @@ router.get("/locais", function (req, res) {
 router.post("/locais/new", (req, res) => {
   // Coletando os dados do formulário
   const nome = req.body.nome;
-  const cpf = req.body.cpf;
-  const endereco = req.body.endereco;
+  const tipo = req.body.tipo;
+  const descricao = req.body.descricao;
   local.create({
     // coluna : dado do form
     nome: nome,
-    cpf: cpf,
-    endereco: endereco,
+    tipo: tipo,
+    descricao: descricao,
   })
     .then(() => {
       res.redirect("/locais");
@@ -75,12 +75,12 @@ router.post("/locais/update", (req, res) => {
   // Coletando dados do formulário
   const id = req.body.id
   const nome = req.body.nome
-  const cpf = req.body.cpf
-  const endereco = req.body.endereco
+  const tipo = req.body.tipo
+  const descricao = req.body.descricao
   local.update({
     nome : nome,
-    cpf : cpf,
-    endereco : endereco
+    tipo : tipo,
+    descricao : descricao
   },
 { where : {id : id}}
 ).then(() => {

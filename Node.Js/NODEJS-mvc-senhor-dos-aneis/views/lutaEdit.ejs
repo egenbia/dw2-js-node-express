@@ -11,22 +11,22 @@
     <form action="/lutas/update" method="POST">
 
         <input type="hidden" name="id" value="<%= luta.id %>">
-        <label>numero do luta:</label>
+        <label>nome do luta:</label>
         <input
           type="text"
-          name="numero"
-          placeholder="Insira o numero do luta"
+          name="nome"
+          placeholder="Insira o nome do luta"
           class="form-control"
-          value="<%= luta.numero %>"
+          value="<%= luta.nome %>"
           required
         />
-        <label>valor do luta:</label>
+        <label>vencedor do luta:</label>
         <input
           type="text"
-          name="valor"
-          placeholder="Insira o valor do luta"
+          name="vencedor"
+          placeholder="Insira o vencedor do luta"
           class="form-control"
-          value="<%= luta.valor %>"
+          value="<%= luta.vencedor %>"
           required
         /> <br>
         <input type="submit" class="btn btn-success" value="Alterar" />

@@ -8,11 +8,11 @@ const Local = connection.define('Locais', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    cpf: {
+    tipo: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    endereco: {
+    descricao: {
         type: Sequelize.STRING,
         allowNull: false
     },

@@ -3,12 +3,12 @@ import Sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
 const Lutas = connection.define('Lutas', {
-    numero: {
-        type: Sequelize.INTEGER,
+    nome: {
+        type: Sequelize.STRING,
         allowNull: false
     },
-    valor: {
-        type: Sequelize.FLOAT,
+    vencedor: {
+        type: Sequelize.STRING,
         allowNull: false
     },
 });

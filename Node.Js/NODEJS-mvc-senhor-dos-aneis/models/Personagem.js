@@ -6,11 +6,11 @@ const Personagem = connection.define('Personagens', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    preco: {
-        type: Sequelize.FLOAT,
+    raca: {
+        type: Sequelize.STRING,
         allowNull: false
     },
-    categoria: {
+    arma: {
         type: Sequelize.STRING,
         allowNull: false
     },

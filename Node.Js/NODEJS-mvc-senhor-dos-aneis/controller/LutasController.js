@@ -13,12 +13,12 @@ router.get("/lutas", function (req, res) {
 // rota de cadastro de lutas
 router.post("/lutas/new", (req, res) => {
   // Coletando os dados do formulário
-  const numero = req.body.numero;
-  const valor = req.body.valor;
+  const nome = req.body.nome;
+  const vencedor = req.body.vencedor;
   luta.create({
     // coluna : dado do form
-    numero: numero,
-    valor: valor,
+    nome: nome,
+    vencedor: vencedor,
   })
     .then(() => {
       res.redirect("/lutas");
@@ -63,11 +63,11 @@ router.get("/lutas/edit/:id", (req, res) => {
 router.post("/lutas/update", (req, res) => {
   // Coletando dados do formulário
   const id = req.body.id
-  const numero = req.body.numero
-  const valor = req.body.valor
+  const nome = req.body.nome
+  const vencedor = req.body.vencedor
   luta.update({
-    numero : numero,
-    valor : valor,
+    nome : nome,
+    vencedor : vencedor,
   },
 { where : {id : id}}
 ).then(() => {
