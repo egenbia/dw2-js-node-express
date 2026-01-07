@@ -1,3 +1,5 @@
+Este repositório reúne os projetos desenvolvidos no 2º semestre da graduação, na disciplina de Desenvolvimento Web II do curso de Desenvolvimento de Software Multiplataforma da FATEC de Registro, demonstrando a aplicação prática dos conceitos estudados ao longo do semestre.
+
 Uma aplicação backend construída com **Node.js e Express.js** — demonstrando fundamentos essenciais de desenvolvimento de APIs REST e backend em JavaScript. Ideal para quem quer começar no mundo do desenvolvimento backend com foco em produção.
 
 
